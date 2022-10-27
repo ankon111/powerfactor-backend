@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./project
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./project/:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    depends_on:
+      - monitoring-api
+      - db
+      - redis
+
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=$SQL_USER
+      - POSTGRES_PASSWORD=$SQL_PASSWORD
+      - POSTGRES_DB=$SQL_DATABASE
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+  celery:
+    build: ./project
+    restart: always
+    command: celery -A core worker -l info
+    volumes:
+      - ./project/:/usr/src/app/
+    env_file:
+      - .env
+    depends_on:
+      - redis
+  celery-beat:
+    build: ./project
+    command: celery -A core beat -l info
+    volumes:
+      - ./project/:/usr/src/app/
+    env_file:
+      - .env
+    depends_on:
+      - redis
+
+  monitoring-api:
+    image: 3megawatt/dev-recruiting-challenge-monitor
+    ports:
+      - 5000:5000
+
+volumes:
+  postgres_data:

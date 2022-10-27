@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "ac8f443d-c5d1-4ed7-8b8e-05d13fe48b80",
+		"name": "solar-plant-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "446861"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/solar-plant/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"my_plant_id_1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/solar-plant/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"solar-plant",
+						""
+					]
+				},
+				"description": "Create Solar Plant"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/solar-plant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/solar-plant",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"solar-plant"
+					]
+				},
+				"description": "Get all Solar Plant list"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/solar-plant/data/?plant-id=1&from=2022-10-26&to=2022-10-27",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/solar-plant/data/?plant-id=1&from=2022-10-26&to=2022-10-27",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"solar-plant",
+						"data",
+						""
+					],
+					"query": [
+						{
+							"key": "plant-id",
+							"value": "1"
+						},
+						{
+							"key": "from",
+							"value": "2022-10-26"
+						},
+						{
+							"key": "to",
+							"value": "2022-10-27"
+						}
+					]
+				},
+				"description": "Fetch raw data from backend service without calculation"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/solar-plant/report/?plant-id=1&from=2022-10-20&to=2022-10-27",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/solar-plant/report/?plant-id=1&from=2022-10-20&to=2022-10-27",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"solar-plant",
+						"report",
+						""
+					],
+					"query": [
+						{
+							"key": "plant-id",
+							"value": "1"
+						},
+						{
+							"key": "from",
+							"value": "2022-10-20"
+						},
+						{
+							"key": "to",
+							"value": "2022-10-27"
+						}
+					]
+				},
+				"description": "Report of hourly sum within date range"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/solar-plant/plant/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/solar-plant/plant/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"solar-plant",
+						"plant",
+						"1"
+					]
+				},
+				"description": "Delete a plant"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/solar-plant/plant/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/solar-plant/plant/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"solar-plant",
+						"plant",
+						"1"
+					]
+				},
+				"description": "Get individual solar plant by id"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/solar-plant/plant/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"my-plant\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/solar-plant/plant/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"solar-plant",
+						"plant",
+						"1"
+					]
+				},
+				"description": "Update solar plant name"
+			},
+			"response": []
+		}
+	]
+}

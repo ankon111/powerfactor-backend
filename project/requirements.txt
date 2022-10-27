@@ -1,0 +1,10 @@
+django
+psycopg2-binary
+djangorestframework
+django-extensions
+requests
+celery
+redis
+ipython
+tenacity
+flake8
