@@ -140,6 +140,6 @@ CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND')
 CELERY_BEAT_SCHEDULE = {
     "sample_task": {
         "task": "core.tasks.sample_task",
-        "schedule": crontab(minute="*/5"),
+        "schedule": crontab(minute="*/20"),
     },
 }

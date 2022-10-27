@@ -79,10 +79,12 @@ The database is synced (task is triggered) in one of two ways:
         the `SYNC_EVERY_RUN` param. e.g if SYNC_EVERY_RUN is 2 then this will sync two years of data
         from the oldest date that exist for specific that plant id. How many years of previous data
         we will save in our backend that is also parameterized by `SYNC_UNTIL_YEAR`
-  2. In a daily interval (periodic task)
+  2. In a daily interval (periodic task,)
         * For periodic task all the logics are same except this runs for all plants.
+        * For demonstration, I run the cronjob in every 20 mins 
 
-**Note:** Monitoring service requests are wrapped by retry mechanism, as monitoring service sometimes become unavailable.
+**Note:** Monitoring service requests are wrapped by retry mechanism, as monitoring service sometimes become 
+unavailable.
 
 ### FutureTask:
 * We covered our code with few tests, more test coverage should be done.
